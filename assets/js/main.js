@@ -307,7 +307,12 @@
     var link = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
     if (!link || canCall.matches) return;
     e.preventDefault();
-    var number = link.getAttribute('href').slice(4).replace(/^(\+\d{3})(\d{3})(\d{3})(\d{3})$/, '$1 $2 $3 $4');
+    var href = link.getAttribute('href');
+    var number = href.slice(4);
+    // Číslo v tvare, v akom je napísané na stránke (tlačidlo „Zavolať“ ho v texte nemá)
+    document.querySelectorAll('a[href="' + href + '"]').forEach(function (a) {
+      if (a.textContent.replace(/\s/g, '') === number) number = a.textContent.trim();
+    });
     copyText(number).then(function () {
       showToast('Číslo ' + number + ' je skopírované.');
     }, function () {

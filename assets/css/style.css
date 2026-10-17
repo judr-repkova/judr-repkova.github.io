@@ -700,11 +700,26 @@ address {
 
 .facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem 2rem;
   margin: 3rem 0 0;
   padding-top: 1.5rem;
   border-top: 1px solid var(--c-line);
+}
+
+/* Na úzkej obrazovke nepárna posledná položka (kancelária) cez celú šírku */
+.facts > div:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 36em) {
+  .facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .facts > div:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
 }
 
 .facts dt {
@@ -1122,48 +1137,56 @@ address {
    O mne
    -------------------------------------------------------------------------- */
 
+/* Všetko pod sebou: nadpis, úvod, dva odseky (na širšej obrazovke vedľa seba,
+   zarovno so zásadami) a zásady */
 .about {
   display: grid;
-  gap: clamp(2rem, 1rem + 4vw, 5rem);
-  align-items: center;
-}
-
-@media (min-width: 60em) {
-  .about {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  }
-}
-
-.about__media {
-  margin: 0;
-}
-
-.about__media img {
-  width: 100%;
-}
-
-.about__text h2 {
-  margin-bottom: 1.25rem;
+  gap: 1.75rem;
 }
 
 .about__lead {
+  max-width: 42em;
+  margin: 0;
   font-size: var(--fs-lead);
   line-height: 1.55;
 }
 
-.about__text > p {
+.about__body p {
   max-width: 36em;
+}
+
+.about__body p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 40em) {
+  .about__body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 2.5rem;
+  }
+
+  .about__body p {
+    margin: 0;
+  }
 }
 
 .principles {
   display: grid;
   gap: 1.5rem 2.5rem;
-  margin-top: 2.25rem;
+  margin-top: 1rem;
 }
 
 @media (min-width: 40em) {
   .principles {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 60em) {
+  .principles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 2rem;
   }
 }
 
@@ -1398,7 +1421,8 @@ address {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: var(--section);
+  /* Na tmavom pozadí treba nad textom viac miesta než v svetlých sekciách */
+  padding-block: calc(var(--section) + 2rem) var(--section);
   background: var(--c-ink);
   color: var(--c-on-dark);
 }
@@ -1514,6 +1538,23 @@ address {
 .contact__list .text-link:hover,
 .location .text-link:hover {
   color: var(--c-brass-light);
+}
+
+/* Úradné hodiny – každý deň na samostatnom riadku */
+.hours {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hours li {
+  display: grid;
+  grid-template-columns: 6rem auto;
+  gap: 1rem;
+}
+
+.hours__note {
+  margin: 0.75rem 0 0;
 }
 
 /* Mapa a pohľad z ulice na budovu */
@@ -1798,7 +1839,7 @@ address {
 .footer__top {
   display: grid;
   gap: 1.5rem 4rem;
-  padding-top: 2.5rem;
+  padding-top: 3.5rem;
   border-top: 1px solid var(--c-line-dark);
 }
 
@@ -1825,6 +1866,16 @@ address {
 .footer__brand .brand__role {
   display: block;
   color: var(--c-on-dark-muted);
+}
+
+/* IČO a DIČ pod menom */
+.footer__ids {
+  margin: 1rem 0 0;
+  line-height: 1.7;
+}
+
+.footer__ids span {
+  display: block;
 }
 
 .footer__legal p {
