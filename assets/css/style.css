@@ -303,6 +303,7 @@ address {
    -------------------------------------------------------------------------- */
 
 .site-header {
+  --progress: 0; /* podiel prečítanej stránky (0–1), nastavuje main.js pri posúvaní */
   position: sticky;
   top: 0;
   z-index: 50;
@@ -354,7 +355,7 @@ address {
   display: block;
   height: 100%;
   background: var(--c-brass);
-  transform: scaleX(var(--progress, 0));
+  transform: scaleX(var(--progress));
   transform-origin: 0 50%;
 }
 
@@ -425,14 +426,17 @@ address {
 }
 
 .site-nav__indicator {
+  /* Polohu a šírku podčiarknutia nastavuje main.js podľa aktívnej položky menu */
+  --x: 0px;
+  --w: 0px;
   position: absolute;
   bottom: 0.2rem;
   left: 0;
-  width: var(--w, 0);
+  width: var(--w);
   height: 1px;
   background: var(--c-brass);
   opacity: 0;
-  transform: translateX(var(--x, 0));
+  transform: translateX(var(--x));
   transition: transform 0.45s var(--ease-out), width 0.45s var(--ease-out), opacity 0.25s ease;
   pointer-events: none;
 }
