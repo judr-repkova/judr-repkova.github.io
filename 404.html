@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- SEO: názov stránky v prehliadači a vo výsledkoch Google (do ~60 znakov) -->
+<title>Stránka sa nenašla | JUDr. Meno Priezvisko</title>
+<!-- SEO: popis vo výsledkoch vyhľadávania (do ~155 znakov) -->
+<meta name="description" content="Stránka sa nenašla.">
+<meta name="robots" content="noindex, follow">
+
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css?v=3">
+<script>document.documentElement.classList.add('js');</script>
+<!-- Meranie (Google Tag Manager) a súhlas s cookies – ID kontajnera sa nastavuje v assets/js/consent.js -->
+<script src="/assets/js/consent.js?v=3"></script>
+<script>
+  /* Staré adresy z predchádzajúcej viacstránkovej verzie webu presmeruje na príslušnú časť jednej stránky */
+  (function () {
+    var map = {"o-mne": "#o-mne", "pravne-sluzby": "#oblasti-prava", "kontakt": "#kontakt", "dakujeme": "#kontakt", "ochrana-osobnych-udajov": "#ochrana-osobnych-udajov", "rodinne-pravo": "#rodinne-pravo", "nehnutelnosti": "#nehnutelnosti", "obcianske-pravo": "#obcianske-pravo", "obchodne-pravo": "#obchodne-pravo", "vymahanie-pohladavok": "#vymahanie-pohladavok", "pracovne-pravo": "#pracovne-pravo"};
+    var slug = window.location.pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
+    if (map[slug]) window.location.replace('/' + map[slug]);
+  })();
+</script>
+</head>
+<body class="page-simple">
+<header class="site-header is-scrolled">
+  <div class="container header__inner">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true">§</span>
+      <span class="brand__text">
+        <span class="brand__name">JUDr. Meno Priezvisko</span>
+        <span class="brand__role">advokátka</span>
+      </span>
+    </a>
+  </div>
+</header>
+<main class="notfound">
+  <div class="container">
+    <h1>Stránka sa nenašla</h1>
+    <p class="notfound__lead">Odkaz je nesprávny alebo stránka bola presunutá. Všetko podstatné nájdete na úvodnej stránke.</p>
+    <a class="btn btn--primary" href="/">Prejsť na úvodnú stránku</a>
+  </div>
+</main>
+</body>
+</html>
