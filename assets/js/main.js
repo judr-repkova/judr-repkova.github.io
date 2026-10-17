@@ -269,6 +269,52 @@
     });
   });
 
+  /* Telefón na počítači – namiesto volania skopíruje číslo ---------------- */
+  // Počítač väčšinou volať nevie a pokus otvoriť odkaz tel: môže stránku nahradiť
+  // chybovou hláškou (napr. náhľad v editore). Na mobile sa volá ako doteraz.
+  var canCall = window.matchMedia('(hover: none) and (pointer: coarse)');
+  var toast = document.createElement('p');
+  var toastTimer;
+  toast.className = 'toast';
+  toast.setAttribute('role', 'status');
+  document.body.appendChild(toast);
+
+  function showToast(text) {
+    toast.classList.add('is-visible');
+    toast.textContent = text;
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () { toast.classList.remove('is-visible'); }, 3500);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { /* prehliadač kopírovanie nepodporuje */ }
+      area.remove();
+      if (ok) resolve(); else reject();
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if (!link || canCall.matches) return;
+    e.preventDefault();
+    var number = link.getAttribute('href').slice(4).replace(/^(\+\d{3})(\d{3})(\d{3})(\d{3})$/, '$1 $2 $3 $4');
+    copyText(number).then(function () {
+      showToast('Číslo ' + number + ' je skopírované.');
+    }, function () {
+      showToast('Zavolajte na ' + number);
+    });
+  });
+
   /* Formulár -------------------------------------------------------------- */
   var form = document.querySelector('form[data-form="kontakt"]');
 
