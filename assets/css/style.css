@@ -565,12 +565,18 @@ address {
     right: 0;
     left: 0;
     max-height: calc(100vh - var(--header-h));
-    max-height: calc(100dvh - var(--header-h));
     padding: 0 var(--gutter) 1.5rem;
     overflow-y: auto;
     background: var(--c-white);
     border-bottom: 1px solid var(--c-line);
     box-shadow: 0 24px 40px -28px rgba(29, 35, 41, 0.45);
+  }
+
+  /* Na mobile počíta aj s lištou prehliadača, ktorá sa pri posúvaní skrýva */
+  @supports (height: 100dvh) {
+    .js .site-nav {
+      max-height: calc(100dvh - var(--header-h));
+    }
   }
 
   .js .site-nav.is-open {
