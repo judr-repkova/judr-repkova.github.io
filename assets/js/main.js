@@ -358,6 +358,9 @@
         if (key !== 'redirect' && value !== '') data[key] = value;
       });
 
+      // Predmet e-mailu začína zvolenou oblasťou, napr. „Rodinné právo – nová správa z webu“
+      if (areaSelect && areaSelect.value) data.subject = areaSelect.value + ' – nová správa z webu';
+
       var areaSlug = areaSelect && areaSelect.selectedOptions && areaSelect.selectedOptions[0]
         ? areaSelect.selectedOptions[0].getAttribute('data-slug') : '';
 
