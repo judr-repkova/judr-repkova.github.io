@@ -31,7 +31,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <script>document.documentElement.classList.add('js');</script>
 <!-- Meranie (Google Tag Manager) a súhlas s cookies – ID kontajnera sa nastavuje v assets/js/consent.js -->
 <script src="assets/js/consent.js?v=3"></script>
@@ -50,11 +50,17 @@
       "email": "kancelaria@judrrepkova.sk",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Florianská 19",
+        "streetAddress": "Floriánska 19",
         "postalCode": "040 01",
         "addressLocality": "Košice",
         "addressCountry": "SK"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.71859,
+        "longitude": 21.24771
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Flori%C3%A1nska+19,+040+01+Ko%C5%A1ice",
       "areaServed": {
         "@type": "City",
         "name": "Košice"
@@ -293,7 +299,7 @@
         <a class="btn btn--outline" href="tel:+421903817161" data-cta="uvod-telefon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a11.6 11.6 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>+421 903 817 161</a>
       </div>
       <dl class="facts">
-        <div><dt>Kancelária</dt><dd>Florianská 19, Košice</dd></div>
+        <div><dt>Kancelária</dt><dd>Floriánska 19, Košice</dd></div>
         <div><dt>Konzultácie</dt><dd>osobne aj online</dd></div>
         <div><dt>Jazyky</dt><dd>slovenský, anglický</dd></div>
       </dl>
@@ -507,8 +513,8 @@
         <div>
           <dt>Kancelária</dt>
           <dd>
-            <address>Florianská 19<br>040 01 Košice</address>
-            <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Floriansk%C3%A1+19,+040+01+Ko%C5%A1ice" rel="noopener" target="_blank">Otvoriť v&nbsp;Mapách Google</a>
+            <address>Floriánska 19<br>040 01 Košice</address>
+            <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Flori%C3%A1nska+19,+040+01+Ko%C5%A1ice" rel="noopener" target="_blank">Otvoriť v&nbsp;Mapách Google</a>
           </dd>
         </div>
         <div>
@@ -586,6 +592,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Mapa a pohľad z ulice sa načítavajú zo služby Google Mapy až pri priblížení k tejto časti stránky -->
+  <div class="container location" id="mapa">
+    <div class="location__head">
+      <div>
+        <h3 class="location__title">Kde ma nájdete</h3>
+        <p class="location__address">Budova Eurodom, Floriánska&nbsp;19, 040&nbsp;01 Košice</p>
+      </div>
+      <a class="text-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Flori%C3%A1nska+19,+040+01+Ko%C5%A1ice" rel="noopener" target="_blank">Naplánovať trasu</a>
+    </div>
+    <div class="location__views">
+      <figure class="location__view">
+        <iframe src="https://maps.google.com/maps?q=Flori%C3%A1nska%2019%2C%20040%2001%20Ko%C5%A1ice&amp;z=17&amp;hl=sk&amp;output=embed" title="Mapa: Floriánska 19, Košice" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <figcaption>Poloha kancelárie na mape</figcaption>
+      </figure>
+      <figure class="location__view">
+        <iframe src="https://maps.google.com/maps?layer=c&amp;cbll=48.71845,21.24782&amp;cbp=11,352,0,0,-14&amp;hl=sk&amp;output=svembed" title="Pohľad z ulice na budovu Eurodom, Floriánska 19" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <figcaption>Budova Eurodom, Floriánska&nbsp;19&nbsp;– pohľad z&nbsp;protiľahlej strany ulice (Google Street View)</figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
 </main>
 
@@ -611,7 +638,7 @@
         <p>Spracúvanie osobných údajov sa riadi nariadením (EÚ) 2016/679 (GDPR) a&nbsp;zákonom č.&nbsp;18/2018 Z.&nbsp;z. o&nbsp;ochrane osobných údajov.</p>
 
         <h3>Prevádzkovateľ</h3>
-        <p>JUDr. Ingrid Repková, advokátka, so sídlom Florianská 19, 040 01 Košice, IČO: 12 345 678, zapísaná v&nbsp;zozname advokátov vedenom Slovenskou advokátskou komorou pod č.&nbsp;0000. Kontakt: <a href="mailto:kancelaria@judrrepkova.sk">kancelaria@judrrepkova.sk</a>, +421 903 817 161.</p>
+        <p>JUDr. Ingrid Repková, advokátka, so sídlom Floriánska 19, 040 01 Košice, IČO: 12 345 678, zapísaná v&nbsp;zozname advokátov vedenom Slovenskou advokátskou komorou pod č.&nbsp;0000. Kontakt: <a href="mailto:kancelaria@judrrepkova.sk">kancelaria@judrrepkova.sk</a>, +421 903 817 161.</p>
 
         <h3>Aké údaje spracúvam a prečo</h3>
         <div class="table-scroll">
@@ -653,6 +680,7 @@
         <ul>
           <li>poskytovateľ webhostingu (GitHub, Inc.&nbsp;– GitHub Pages) a&nbsp;e-mailových služieb,</li>
           <li>služba Web3Forms, ktorá doručuje správy z&nbsp;kontaktného formulára na môj e-mail,</li>
+          <li>Google Ireland Limited pri zobrazení mapy v&nbsp;časti Kontakt (Google Mapy), ktorá pri tom spracúva vašu IP adresu a&nbsp;údaje o&nbsp;prehliadači,</li>
           <li>externý účtovník alebo daňový poradca,</li>
           <li>súdy a&nbsp;orgány verejnej moci v&nbsp;rozsahu potrebnom na vybavenie vašej veci,</li>
           <li>ak s&nbsp;tým súhlasíte, Google Ireland Limited (Google Analytics, Google Ads) a&nbsp;Meta Platforms Ireland Limited.</li>
@@ -677,6 +705,7 @@
             </tbody>
           </table>
         </div>
+        <p>Mapa a&nbsp;pohľad na budovu v&nbsp;časti Kontakt sa načítavajú zo služby Google Mapy, keď sa k&nbsp;tejto časti stránky priblížite. Google pri tom môže ukladať vlastné cookies podľa svojich <a href="https://policies.google.com/privacy?hl=sk" rel="noopener">zásad ochrany súkromia</a>.</p>
         <p>Voľbu môžete kedykoľvek zmeniť cez odkaz Nastavenia cookies v&nbsp;pätičke stránky.</p>
         <p class="privacy__updated">Posledná aktualizácia: október 2026</p>
       </div>
